@@ -1,0 +1,34 @@
+<div id="grid-container">
+  <app-modal *ngIf="gameService?.currentMode === gameMode.won || gameService?.currentMode === gameMode.lost">
+    <div class="panel-header">
+      <label>{{gameService?.currentMode === gameMode.won ? 'COMPLETED' : 'QUIT'}}</label>
+    </div>
+    <div class="panel-body" style="text-align: center">
+      Score: {{gameService?.score?.moveCount}}
+    </div>
+    <div class="panel-footer">
+      <div class="btn-container">
+        <button class="btn btn-primary" (click)="onTryAgainClick()">
+          Try Again
+        </button>
+      </div>
+    </div>
+  </app-modal>
+  <div id="grid" [style.width.px]="width" [style.height.px]="height">
+
+    <div *ngFor="let row of gameService?.grid">
+      <app-tile *ngFor="let tile of row" [tile]="tile"></app-tile>
+    </div>
+
+    <div *ngFor="let tile of gameService?.mushrooms">
+      <app-tile *ngFor="let tile of row" [tile]="tile"></app-tile>
+    </div>
+
+    <app-mario></app-mario>
+
+    <!-- <player *ngFor="let player of state.players" [index]="player.index" [styles]="player.styles" [type]="player.type"
+      [sprite]="player.sprite" [state]="player.state" [action]="player.action" [direction]="player.direction" [blood]="player.blood"
+      [color]="player.color" [route]="player.route"></player> -->
+
+  </div>
+</div>

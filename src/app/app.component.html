@@ -1,0 +1,15 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<header id="header">
+  <h1>
+    Welcome to {{ title }} game!
+  </h1>
+</header>
+<main>
+  <app-status *ngIf="gotUserDetais"></app-status>
+  <app-modal *ngIf="showModal">
+    <app-user-input [header]="modalHeader" (submitClicked)="submitClicked($event)"></app-user-input>
+  </app-modal>
+  <div id="game-container">
+    <app-grid [height]="height" [width]="width"></app-grid>
+  </div>
+</main>

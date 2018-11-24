@@ -1,0 +1,16 @@
+<div class="panel-header">
+    <label>{{header}}</label>
+  </div>
+  <div class="panel-body" style="text-align: center">
+    <input #inputNumber type="number" name="rowColumn" id="" [value]="inputValue">
+    <div *ngIf="isError" class="error">
+        {{errorText}}
+    </div>
+  </div>
+  <div class="panel-footer">
+    <div class="btn-container">
+      <button class="btn btn-primary" (click)="onSubmitClick(inputNumber.value)">
+        Submit
+      </button>
+    </div>
+  </div>
